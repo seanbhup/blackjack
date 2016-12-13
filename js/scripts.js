@@ -5,6 +5,9 @@ $(document).ready(function(){
 // -----------------------------
 
 var theDeck = [];
+var playersHand = [];
+var dealersHand = [];
+createDeck();
 
 // Get deal working
 $(".deal-button").click(function(){
@@ -15,21 +18,41 @@ $(".deal-button").click(function(){
 	// 		$("#deal").hide("slow");
 	// 	}
 	// ----------------------------------------
-	createDeck();
 	shuffleDeck();
-	console.log("Deal");
+	// Add card 0 to playersHand
+	playersHand.push(theDeck[0]);
+	// Add card 1 to dealersHand
+	dealersHand.push(theDeck[1]);
+	// Add card 2 to playersHand
+	playersHand.push(theDeck[2]);
+	// Add card 3 to dealersHand
+	dealersHand.push(theDeck[3]);
+	// console.log("Deal");
+
+	// Put the first card in the playersHand
+	placeCard(playersHand[0], "player", "one");
+	// Put the second card in the playersHand
+	placeCard(playersHand[1], "player", "two");
+	// Put the first card in the dealersHand
+	placeCard(dealersHand[0], "dealer", "one");
+	// Put the second card in the dealersHand
+	placeCard(dealersHand[1], "dealer", "two");
+
+	calculateTotal("player",playersHand);
+	calculateTotal("dealer",dealersHand);
 })
 
 $(".hit-button").click(function(){
-	console.log("Hit");
+	// console.log("Hit");
 })
 
 $(".stand-button").click(function(){
-	console.log("Stand");
+	// console.log("Stand");
 });
 // Run the dealer "hit" until it 
 
 function createDeck(){
+	theDeck = [];
 	// Fill the deck with:
 	// - 52 cards
 	// -- 4 suits (h,s,d,c)
@@ -56,6 +79,25 @@ function shuffleDeck(){
 		theDeck[card2ToSwitch] = temp;
 	}
 	console.log(theDeck);
+}
+
+function placeCard(whatCard, who, whichSlot){
+	var classToTarget = "." + who + "-cards .card-" + whichSlot;
+	// console.log(classToTarget);
+	$(classToTarget).html('<img src="images/' + whatCard + '.png">');
+
+}
+
+function calculateTotal(who, theirHand){
+	var cardValue = 0;
+	var total = 0;
+	for(let i = 0; i < theirHand.length; i++){
+		cardValue = Number(theirHand[i].slice(0,-1));
+		console.log(cardValue);
+		total += cardValue;
+	}
+	var classToTarget = "." + who + "-total-number";
+	$(classToTarget).text(total);
 }
 
 })
