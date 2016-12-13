@@ -13,5 +13,68 @@
 </head>
 <body>
 
+<!-- Layout:
+Create an element for our table. Turn it green, and give it a white border.
+Create an element for the dealer's hand and for the player's hand.
+Create an element for the dealer's total and the player's total.
+Create an element for each card in each hand, a maximum of 6 cards. 
+Assign a generic class to each card and a unique class to each card so we style and target 
+Make a Deal, hit, and stand button -->
+
+<div class="container">
+	<div class="row">
+		<!-- The table element -->
+		<div class="the-table col-sm-8 col-sm-offset-1">
+			<div class="row">
+				<!-- The dealer element -->
+				<div class="col-sm-11 dealer-hand-wrapper">
+					<!-- Dealer total -->
+					<div class="col-sm-3 dealer-total">
+						Dealer total: <span class="dealer-total-number">0</span>
+					</div>
+					<div class="col-sm-9 dealer-cards">
+						<div class="col-sm-1 card card-one"></div>
+						<div class="col-sm-1 card card-two"></div>
+						<div class="col-sm-1 card card-three"></div>
+						<div class="col-sm-1 card card-four"></div>
+						<div class="col-sm-1 card card-five"></div>
+						<div class="col-sm-1 card card-six"></div>
+					</div>
+				</div>
+			</div>
+
+			<!-- The player element -->
+			<div class="row">
+				<div class="col-sm-11 player-hand-wrapper">
+					<!-- Player total -->
+					<div class="col-sm-3 player-total">
+						Player total: <span class="player-total-number">0</span>
+					</div>
+					<div class="col-sm-9 player-cards">
+						<div class="col-sm-1 card card-one"></div>
+						<div class="col-sm-1 card card-two"></div>
+						<div class="col-sm-1 card card-three"></div>
+						<div class="col-sm-1 card card-four"></div>
+						<div class="col-sm-1 card card-five"></div>
+						<div class="col-sm-1 card card-six"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="button-wrapper col-sm-1 col-sm-offset-2">
+					<button class="button deal-button" id="deal" toDo="hide">Deal</button>
+				</div>
+				<div class="col-sm-1 col-sm-offset-1">
+					<button class="button hit-button">Hit</button>
+				</div>
+				<div class="col-sm-1 col-sm-offset-1">
+					<button class="button stand-button">Stand</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 </body>
 </html>

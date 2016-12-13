@@ -1,0 +1,45 @@
+.the-table{
+	background-color: #559e83;
+	border: 4px solid #06302f;
+	border-radius: 10px;
+	margin-top: 50px;
+	padding: 30px 0px;
+	color: white;
+	font-size: 16px;
+	font-family: Lucida Console;
+}
+
+.card{
+	height: 120px;
+	width: 60px;
+	color: black;
+	margin: 10px;
+	border: 1px solid black;
+	background-color: #5a5255;
+}
+
+.button-wrapper{
+	margin-left: 200px;
+	padding: ;
+}
+
+.button{
+	width: 75px;
+	font-size: 18px;
+}
+
+.deal-button{
+	color: black;
+	background-color: #1b85b8;
+}
+
+.hit-button{
+	color: black;
+	background-color: #ae5a41;
+}
+
+.stand-button{
+	color: black;
+	background-color: #c3cb71;
+}
+
