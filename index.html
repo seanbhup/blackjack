@@ -25,10 +25,19 @@ Make a Deal, hit, and stand button -->
 <div class="container text-center">
 	<div class="row title text-center">BLACKJACK</div>
 	<div class="row end-game-message">&nbsp;</div>
+	<div class="row end-game"></div>
 	<div class="deck">
 		<img src="images/deck.png">
 	</div>
 	<div class="row">
+		<div class="col-sm-1 col-sm-offset-10 bets-wrapper">
+			<div class="col-sm-2 bets">Bets:</div>
+			<button class="bet-button bet25">Bet $25</button>
+			<button class="bet-button bet50">Bet $50</button>
+			<button class="bet-button bet100">Bet $100</button>
+			<button class="bet-button bet250">Bet $250</button>
+			<div class="total-cash">Total cash: <span id="total-cash-value">0</span></div>
+		</div>
 		<!-- The table element -->
 		<div class="the-table col-sm-8 col-sm-offset-2">
 			<!-- The dealer element -->

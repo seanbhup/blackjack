@@ -5,6 +5,8 @@ const freshDeck = createDeck();
 var theDeck = freshDeck;
 var playersHand = [];
 var dealersHand = [];
+var dealersOpeningHand = [];
+
 // var firstDeal = true;
 // var topOfDeck = 4;
 
@@ -39,7 +41,8 @@ var dealersHand = [];
 
 
 		calculateTotal("player",playersHand);
-		calculateTotal("dealer",dealersHand);
+		dealersOpeningHand.push(dealersHand[0]);
+		calculateTotal("dealer",dealersOpeningHand);
 
 		// ---MAKES DEAL BUTTON DISAPPEAR ON CLICK----
 		var whatToDo = $(this).attr("toDo");
@@ -120,15 +123,20 @@ var dealersHand = [];
 
 		if(playerTotal > 21){
 			$(".end-game-message").text("Sorry, you lost!")
+			$(".end-game").addClass("end-game-animation")
 		}else if(dealerTotal > 21){
 			$(".end-game-message").text("You won!")
+			$(".end-game").addClass("end-game-animation")
 		}else{
 			if(playerTotal > dealerTotal){
 				$(".end-game-message").text("Sorry, y--... Just kidding, YOU WON!")
+				$(".end-game").addClass("end-game-animation")
 			}else if(dealerTotal > playerTotal){
-				$(".player-total").text("Sorry, you lost!")
+				$(".end-game-message").text("Sorry, you lost!")
+				$(".end-game").addClass("end-game-animation")
 			}else{
-				$(".dealer-total .player-total").text("You pushed with the dealer!")
+				$(".end-game-message").text("You pushed with the dealer!")
+				$(".end-game").addClass("end-game-animation")
 			}
 		}
 	}
@@ -181,7 +189,6 @@ var dealersHand = [];
 			var classToTarget = "." + who + "-cards .card-" + whichSlot;
 			// console.log(classToTarget);
 			$(classToTarget).html('<img src="images/' + whatCard + '.png">');
-			$(".card").addClass("flip");
 		// }
 
 		
@@ -217,7 +224,9 @@ var dealersHand = [];
 			$(classToTarget).text(total)
 		}
 		return total;
-		
-		
 	};
+
+	function totalCash(betAmount, ifWin, currentCash){
+		
+	}
 });
