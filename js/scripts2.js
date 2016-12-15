@@ -5,7 +5,7 @@ const freshDeck = createDeck();
 var theDeck = freshDeck;
 var playersHand = [];
 var dealersHand = [];
-var firstDeal = true;
+// var firstDeal = true;
 // var topOfDeck = 4;
 
 	$(".deal-button").click(function(){
@@ -26,7 +26,9 @@ var firstDeal = true;
 		placeCard(playersHand[0], "player", "1");
 		placeCard(playersHand[1], "player", "2");
 		placeCard(dealersHand[0], "dealer", "1");
-		placeCard(dealersHand[1], "dealer", "2");
+		// placeCard(dealersHand[1], "dealer", "2");
+		placeCard("deck", "dealer", "2");
+
 
 		calculateTotal("player",playersHand);
 		calculateTotal("dealer",dealersHand);
@@ -80,7 +82,7 @@ var firstDeal = true;
 
 	$(".stand-button").click(function(){
 		var dealerTotal = calculateTotal("dealer", dealersHand);
-		placeCard("dealer", "2", dealersHand[1]);
+		placeCard(dealersHand[1], "dealer", "2");
 		while(dealerTotal < 17){
 			dealersHand.push(theDeck.shift()); //SHIFT AGAIN
 			var slotForNewCard = dealersHand.length;
@@ -101,26 +103,26 @@ var firstDeal = true;
 			var dealerTotal = calculateTotal("dealer", dealersHand);
 		}
 
-		checkWin();	
+		checkWin();
 	});
 
 	function checkWin(){
 		var dealerTotal = (calculateTotal("dealer", dealersHand))
 		var playerTotal = (calculateTotal("player", playersHand))
 
-		// if(playerTotal > 21){
-		// 	$(".player-total").text("Player Lost")
-		// }else if(dealerTotal > 21){
-		// 	$(".dealer-total").text("Player Wins")
-		// }else{
-		// 	if(playerTotal > dealerTotal){
-		// 		$(".player-total").text("Player Wins")
-		// 	}else if(dealerTotal > playerTotal){
-		// 		$(".dealer-total").text("Player Lost")
-		// 	}else{
-		// 		$(".dealer-total .player-total").text("PUSH")
-		// 	}
-		// }
+		if(playerTotal > 21){
+			$(".end-game-message").text("Sorry, you lost!")
+		}else if(dealerTotal > 21){
+			$(".end-game-message").text("You won!")
+		}else{
+			if(playerTotal > dealerTotal){
+				$(".end-game-message").text("Sorry, y--... Just kidding, you won!")
+			}else if(dealerTotal > playerTotal){
+				$(".dealer-total").text("Sorry, you lost!")
+			}else{
+				$(".dealer-total .player-total").text("You pushed with the dealer!")
+			}
+		}
 	}
 
 	function reset(){
@@ -163,16 +165,15 @@ var firstDeal = true;
 	};	
 
 	function placeCard(whatCard, who, whichSlot){
-		if((who === "dealer") && (whatCard === dealersHand[1]) && (firstDeal)){
-			firstDeal = false;
-			var classToTarget = "." + who + "-cards .card-" + whichSlot;
-			$(classToTarget).html('<img src="images/deck.png">');
-		}else{
+		// if((who === "dealer") && (whatCard === dealersHand[1]) && (firstDeal)){
+		// 	firstDeal; false
+		// 	var classToTarget = "." + who + "-cards .card-" + whichSlot;
+		// 	$(classToTarget).html('<img src="images/deck.png">');
+		// }else{
 			var classToTarget = "." + who + "-cards .card-" + whichSlot;
 			// console.log(classToTarget);
 			$(classToTarget).html('<img src="images/' + whatCard + '.png">');
-			// firstDeal = false;
-		}
+		// }
 
 		
 	};
@@ -202,7 +203,6 @@ var firstDeal = true;
 		// }
 		if(total > 21){
 			$(classToTarget).text("BUST")
-			$(".title").text("BUST!")
 		}else{
 			$(classToTarget).text(total)
 		}

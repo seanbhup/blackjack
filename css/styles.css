@@ -27,7 +27,11 @@ img:hover{
 
 .the-table{
 	background-color: #559e83;
-	border: 4px solid #06302f;
+	/* border: 4px solid #06302f; */
+	border-bottom: 10px solid #06302f;
+	border-top: 1px solid #06302f;
+	border-left: 3px solid #06302f;
+	border-right: 3px solid #06302f;
 	border-radius: 10px 10px 45% 45%;
 	margin-top: 50px;
 	text-align: center;
@@ -58,16 +62,18 @@ img:hover{
 .button{
 	width: 75px;
 	font-size: 18px;
+	border-radius: 20px;
 	/* transform: skew(-10deg); */
+	/* border: .5px solid blue; */
+	border: none;
+	color: black;
 }
 
 .deal-button{
-	color: black;
 	background-color: #1b85b8;
 }
 
 .hit-button{
-	color: black;
 	background-color: #ae5a41;
 }
 
@@ -76,7 +82,6 @@ img:hover{
 }
 
 .stand-button{
-	color: black;
 	background-color: #c3cb71;
 }
 
@@ -86,8 +91,10 @@ img:hover{
 
 #restart-game{
 	background-color: #559e83;
-	margin-top: 10px;
+	margin-top: 50px;
 	color: black;
+	border-radius: 20px;
+	/* border: 1px solid black */
 	/* transform: skew(-10deg); */
 }
 
