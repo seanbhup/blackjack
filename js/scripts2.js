@@ -28,6 +28,14 @@ var dealersHand = [];
 		placeCard(dealersHand[0], "dealer", "1");
 		// placeCard(dealersHand[1], "dealer", "2");
 		placeCard("deck", "dealer", "2");
+		placeCard("deck", "dealer", "3");
+		placeCard("deck", "dealer", "4");
+		placeCard("deck", "dealer", "5");
+		placeCard("deck", "dealer", "6");
+		placeCard("deck", "player", "3");
+		placeCard("deck", "player", "4");
+		placeCard("deck", "player", "5");
+		placeCard("deck", "player", "6");
 
 
 		calculateTotal("player",playersHand);
@@ -116,9 +124,9 @@ var dealersHand = [];
 			$(".end-game-message").text("You won!")
 		}else{
 			if(playerTotal > dealerTotal){
-				$(".end-game-message").text("Sorry, y--... Just kidding, you won!")
+				$(".end-game-message").text("Sorry, y--... Just kidding, YOU WON!")
 			}else if(dealerTotal > playerTotal){
-				$(".dealer-total").text("Sorry, you lost!")
+				$(".player-total").text("Sorry, you lost!")
 			}else{
 				$(".dealer-total .player-total").text("You pushed with the dealer!")
 			}
@@ -173,6 +181,7 @@ var dealersHand = [];
 			var classToTarget = "." + who + "-cards .card-" + whichSlot;
 			// console.log(classToTarget);
 			$(classToTarget).html('<img src="images/' + whatCard + '.png">');
+			$(".card").addClass("flip");
 		// }
 
 		
@@ -198,11 +207,12 @@ var dealersHand = [];
 		if((total > 21) && (hasAce)){
 				total -= 10;
 		}
+
 		// if((total < 21) && (hasAce)){
 		// 	$(".player-total-value").text()
 		// }
 		if(total > 21){
-			$(classToTarget).text("BUST")
+			$(classToTarget).text("Busted with " + total)
 		}else{
 			$(classToTarget).text(total)
 		}

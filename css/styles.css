@@ -1,18 +1,22 @@
 html{
 	height: 100%;
-	background-color: #5a5255;
+	background-color: #E0D0C1;
 }
 
 body{
-	background-color: #5a5255;
+	background-color: #E0D0C1;
 }
 
 img{
 	height: 120px;
-	width: 100%;
+	/* width: 100%; */
 	position: absolute;
 	left: 0px;
 	border-radius: 5px;
+}
+
+.container{
+	perspective: 300px;
 }
 
 img:hover{
@@ -20,9 +24,13 @@ img:hover{
 	transition: all .5s;
 }
 
+.deck{
+	position: absolute;
+}
+
 .title{
 	font-size: 50px;
-	color: white
+	color: #06302f;
 }
 
 .the-table{
@@ -33,12 +41,14 @@ img:hover{
 	border-left: 3px solid #06302f;
 	border-right: 3px solid #06302f;
 	border-radius: 10px 10px 45% 45%;
+	box-shadow: 0px 10px 10px 10px #a6a6a6;
 	margin-top: 50px;
-	text-align: center;
+	/* text-align: center; */
 	padding: 30px 0px;
 	color: white;
 	font-size: 16px;
 	font-family: Lucida Console;
+	transform: rotateX(10deg);
 	/* transform: skew(10deg); */
 }
 
@@ -105,3 +115,4 @@ img:hover{
 .dealer-total{
 	/* transform: skew(-10deg); */
 }
+
