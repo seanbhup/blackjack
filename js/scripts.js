@@ -94,10 +94,13 @@ function calculateTotal(who, theirHand){
 	for(let i = 0; i < theirHand.length; i++){
 		cardValue = Number(theirHand[i].slice(0,-1));
 		console.log(cardValue);
+		if(cardValue >= 10){
+			cardValue = 10
+		}
 		total += cardValue;
 	}
 	var classToTarget = "." + who + "-total-number";
-	$(classToTarget).text(total);
+	$(classToTarget).text(total)
 }
 
 })
