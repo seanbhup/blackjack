@@ -7,6 +7,7 @@ var playersHand = [];
 var dealersHand = [];
 var dealersOpeningHand = [];
 
+
 // var firstDeal = true;
 // var topOfDeck = 4;
 
@@ -227,6 +228,6 @@ var dealersOpeningHand = [];
 	};
 
 	function totalCash(betAmount, ifWin, currentCash){
-		
+
 	}
 });
